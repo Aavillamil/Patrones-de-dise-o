@@ -1,4 +1,4 @@
-package org.example.patronAbastractFactory.services;
+package org.example.patronesCreacionales.patronAbastractFactory.services;
 
 public class SillaClasica implements Sillas{
     @Override

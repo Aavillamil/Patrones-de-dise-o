@@ -1,10 +1,8 @@
 package org.example;
 
-import org.example.patronAbastractFactory.abstractFactory.FabricaMuebles;
-import org.example.patronAbastractFactory.abstractFactory.FactoryClasica;
-import org.example.patronAbastractFactory.abstractFactory.FactoyModerno;
-import org.example.patronFactory.factory.FabricaDeProductos;
-import org.example.patronFactory.servicios.Productos;
+import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FabricaMuebles;
+import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FactoryClasica;
+import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FactoyModerno;
 
 public class Main {
     public static void main(String[] args) {

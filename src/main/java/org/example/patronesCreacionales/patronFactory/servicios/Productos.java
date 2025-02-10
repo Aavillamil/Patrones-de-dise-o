@@ -1,4 +1,4 @@
-package org.example.patronFactory.servicios;
+package org.example.patronesCreacionales.patronFactory.servicios;
 
 public abstract class  Productos {
     public abstract double calcularPrecioFinal(double precio);

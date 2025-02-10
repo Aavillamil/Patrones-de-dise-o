@@ -1,4 +1,4 @@
-package org.example.patronFactory.servicios;
+package org.example.patronesCreacionales.patronFactory.servicios;
 
 public class Ropa extends Productos{
     @Override

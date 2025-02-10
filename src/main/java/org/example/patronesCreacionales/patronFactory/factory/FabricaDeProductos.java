@@ -1,9 +1,9 @@
-package org.example.patronFactory.factory;
+package org.example.patronesCreacionales.patronFactory.factory;
 
-import org.example.patronFactory.servicios.Electronicos;
-import org.example.patronFactory.servicios.Libros;
-import org.example.patronFactory.servicios.Productos;
-import org.example.patronFactory.servicios.Ropa;
+import org.example.patronesCreacionales.patronFactory.servicios.Electronicos;
+import org.example.patronesCreacionales.patronFactory.servicios.Libros;
+import org.example.patronesCreacionales.patronFactory.servicios.Productos;
+import org.example.patronesCreacionales.patronFactory.servicios.Ropa;
 
 public abstract class FabricaDeProductos {
 
