@@ -3,10 +3,37 @@ package org.example;
 import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FabricaMuebles;
 import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FactoryClasica;
 import org.example.patronesCreacionales.patronAbastractFactory.abstractFactory.FactoyModerno;
+import org.example.patronesCreacionales.patronBuilder.builder.EstandarComputerBuilder;
+import org.example.patronesCreacionales.patronBuilder.builder.GammingComputerBuilder;
+import org.example.patronesCreacionales.patronBuilder.modelo.ComputerEstandar;
+import org.example.patronesCreacionales.patronBuilder.modelo.ComputerGamming;
+import org.example.patronesCreacionales.patronBuilder.services.CreatorComputer;
 
 public class Main {
     public static void main(String[] args) {
-        FabricaMuebles mueblesClasicos= new FactoryClasica();
+        CreatorComputer creatorComputer = new CreatorComputer();
+        //estandar
+        EstandarComputerBuilder estandarComputerBuilder= new EstandarComputerBuilder();
+        creatorComputer.makeEstandar(estandarComputerBuilder);
+        ComputerEstandar computerEstandar = (ComputerEstandar) estandarComputerBuilder.getResult();
+        System.out.println(computerEstandar.encenderEquipo());
+        System.out.println(computerEstandar.getProcesador());
+        System.out.println(computerEstandar.getAlmacenamiento());
+        System.out.println(computerEstandar.getMemoriaRam());
+        System.out.println(computerEstandar.getSistemaOperativo());
+        System.out.println(computerEstandar.apagarEquipo());
+        //Gamming
+        GammingComputerBuilder gammingComputerBuilder= new GammingComputerBuilder();
+        creatorComputer.makeGamming(gammingComputerBuilder);
+        ComputerGamming computerGamming = (ComputerGamming) gammingComputerBuilder.getResult();
+        System.out.println(computerGamming.encenderEquipo());
+        System.out.println(computerGamming.getProcesador());
+        System.out.println(computerGamming.getAlmacenamiento());
+        System.out.println(computerGamming.getMemoriaRam());
+        System.out.println(computerGamming.getSistemaOperativo());
+        System.out.println(computerGamming.apagarEquipo());
+
+        /*FabricaMuebles mueblesClasicos= new FactoryClasica();
         FabricaMuebles mueblesModernos= new FactoyModerno();
         //clasicos
         System.out.println(mueblesClasicos.createSilla().mostrarDiseño());
@@ -15,7 +42,7 @@ public class Main {
         //modernos
         System.out.println(mueblesModernos.createSilla().mostrarDiseño());
         System.out.println(mueblesModernos.createMesas().mostrarDiseño());
-        System.out.println(mueblesModernos.createSofas().mostrarDiseño());
+        System.out.println(mueblesModernos.createSofas().mostrarDiseño());*/
 
 
 //        Productos libro = FabricaDeProductos.traerMetodo("libro");
