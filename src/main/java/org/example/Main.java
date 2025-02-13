@@ -8,10 +8,30 @@ import org.example.patronesCreacionales.patronBuilder.builder.GammingComputerBui
 import org.example.patronesCreacionales.patronBuilder.modelo.ComputerEstandar;
 import org.example.patronesCreacionales.patronBuilder.modelo.ComputerGamming;
 import org.example.patronesCreacionales.patronBuilder.services.CreatorComputer;
+import org.example.patronesCreacionales.patronPrototype.Camiones;
+import org.example.patronesCreacionales.patronPrototype.Vehiculos;
 
 public class Main {
     public static void main(String[] args) {
+        //PROTOTYPE
+        Camiones camion = new Camiones();
+        camion.setModelo("3");
+        camion.setMarca("Volvo");
+        camion.setAnio(2024);
+        camion.setKilometraje(20.000);
+        camion.setCapacidad_carga("2");
+        Camiones camion2= (Camiones) camion.clone();
+
+        System.out.println(camion.getAnio());
+        System.out.println(camion2.getCapacidad_carga());
+
+
+
+
+        /*
+        //BUILDER
         CreatorComputer creatorComputer = new CreatorComputer();
+
         //estandar
         EstandarComputerBuilder estandarComputerBuilder= new EstandarComputerBuilder();
         creatorComputer.makeEstandar(estandarComputerBuilder);
@@ -31,9 +51,12 @@ public class Main {
         System.out.println(computerGamming.getAlmacenamiento());
         System.out.println(computerGamming.getMemoriaRam());
         System.out.println(computerGamming.getSistemaOperativo());
-        System.out.println(computerGamming.apagarEquipo());
+        System.out.println(computerGamming.apagarEquipo());*/
 
-        /*FabricaMuebles mueblesClasicos= new FactoryClasica();
+        /*
+        //ABSTRACT FACTORY
+
+        FabricaMuebles mueblesClasicos= new FactoryClasica();
         FabricaMuebles mueblesModernos= new FactoyModerno();
         //clasicos
         System.out.println(mueblesClasicos.createSilla().mostrarDiseño());
@@ -45,21 +68,23 @@ public class Main {
         System.out.println(mueblesModernos.createSofas().mostrarDiseño());*/
 
 
-//        Productos libro = FabricaDeProductos.traerMetodo("libro");
-//        double precioLibro = libro.calcularPrecioFinal(100);
-//        System.out.println("Creando un libro de precio base de: 500");
-//        System.out.println("Precio final del libro es: "+precioLibro);
-//
-//
-//        Productos electronico = FabricaDeProductos.traerMetodo("Electronico");
-//        double precioElectronico = electronico.calcularPrecioFinal(500);
-//        System.out.println("Creando un electronico de precio base de: 500");
-//        System.out.println("Precio final del electronico es: "+precioElectronico);
-//
-//        Productos ropa=FabricaDeProductos.traerMetodo("Ropa");
-//        double precioRopa=ropa.calcularPrecioFinal(200);
-//        System.out.println("Creando una ropa de precio base de: 200");
-//        System.out.println("Precio final de la ropa es: "+precioRopa);
+       /*
+       //FACTORY
+       Productos libro = FabricaDeProductos.traerMetodo("libro");
+        double precioLibro = libro.calcularPrecioFinal(100);
+        System.out.println("Creando un libro de precio base de: 500");
+        System.out.println("Precio final del libro es: "+precioLibro);
+
+
+        Productos electronico = FabricaDeProductos.traerMetodo("Electronico");
+        double precioElectronico = electronico.calcularPrecioFinal(500);
+        System.out.println("Creando un electronico de precio base de: 500");
+        System.out.println("Precio final del electronico es: "+precioElectronico);
+
+        Productos ropa=FabricaDeProductos.traerMetodo("Ropa");
+        double precioRopa=ropa.calcularPrecioFinal(200);
+        System.out.println("Creando una ropa de precio base de: 200");
+        System.out.println("Precio final de la ropa es: "+precioRopa);*/
 
 
     }
