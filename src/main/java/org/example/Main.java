@@ -10,10 +10,17 @@ import org.example.patronesCreacionales.patronBuilder.modelo.ComputerGamming;
 import org.example.patronesCreacionales.patronBuilder.services.CreatorComputer;
 import org.example.patronesCreacionales.patronPrototype.Camiones;
 import org.example.patronesCreacionales.patronPrototype.Vehiculos;
+import org.example.patronesCreacionales.patronSingleton.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        //PROTOTYPE
+
+        Configuration configuration1=Configuration.getInstance();
+        Configuration configuration2=Configuration.getInstance();
+        System.out.println(configuration1.metodo());
+        System.out.println(configuration2.metodo());
+
+        /* //PROTOTYPE
         Camiones camion = new Camiones();
         camion.setModelo("3");
         camion.setMarca("Volvo");
@@ -24,6 +31,10 @@ public class Main {
 
         System.out.println(camion.getAnio());
         System.out.println(camion2.getCapacidad_carga());
+
+        if(camion.equals(camion2)){
+            System.out.println("son iguales!!");
+        }*/
 
 
 
