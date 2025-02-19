@@ -3,9 +3,7 @@ package org.example.patronesComportamiento.command.services;
 import org.example.patronesComportamiento.command.model.Pedidos;
 import org.example.patronesComportamiento.command.model.Productos;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
