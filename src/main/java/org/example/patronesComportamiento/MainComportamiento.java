@@ -1,5 +1,11 @@
 package org.example.patronesComportamiento;
 
+import org.example.patronesComportamiento.chainOfResponsability.model.EnumNivelTicket;
+import org.example.patronesComportamiento.chainOfResponsability.model.Tickets;
+import org.example.patronesComportamiento.chainOfResponsability.responsability.GestionTickets;
+import org.example.patronesComportamiento.chainOfResponsability.services.Administrador;
+import org.example.patronesComportamiento.chainOfResponsability.services.SoporteAvanzado;
+import org.example.patronesComportamiento.chainOfResponsability.services.SoporteBasico;
 import org.example.patronesComportamiento.command.invoker.Invoker;
 import org.example.patronesComportamiento.command.model.Pedidos;
 import org.example.patronesComportamiento.command.model.Productos;
@@ -36,7 +42,7 @@ public class MainComportamiento {
         publisher.addSubscriptor("Aplicacion web",new AplicacionWeb());
         publisher.notifyMessages();*/
 
-        Invoker invoker = new Invoker();
+        /*Invoker invoker = new Invoker();
         Pedidos pedidos = new Pedidos(1, Date.valueOf(LocalDate.now()),"Abierto");
         Productos shampoo= new Productos("Shampoo",5000);
         Productos jabon= new Productos("Jabon",2000);
@@ -51,7 +57,17 @@ public class MainComportamiento {
         invoker.recibirInterface(agregarProducto2);
         invoker.recibirInterface(completarPedido);
         invoker.recibirInterface(cancelarPedido);
-        invoker.realizarAccionInterface();
+        invoker.realizarAccionInterface();*/
+
+        Tickets tickets= new Tickets("No me funciona el servidor", EnumNivelTicket.ALTO);
+        SoporteBasico soporteBasico = new SoporteBasico();
+        SoporteAvanzado soporteAvanzado = new SoporteAvanzado();
+        Administrador administrador= new Administrador();
+
+        soporteBasico.setNext(soporteAvanzado);
+        soporteAvanzado.setNext(administrador);
+
+        soporteBasico.procesarTickets(tickets);
 
 
 
