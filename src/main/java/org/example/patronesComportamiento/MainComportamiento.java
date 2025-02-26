@@ -1,28 +1,8 @@
 package org.example.patronesComportamiento;
 
-import org.example.patronesComportamiento.chainOfResponsability.model.EnumNivelTicket;
-import org.example.patronesComportamiento.chainOfResponsability.model.Tickets;
-import org.example.patronesComportamiento.chainOfResponsability.responsability.GestionTickets;
-import org.example.patronesComportamiento.chainOfResponsability.services.Administrador;
-import org.example.patronesComportamiento.chainOfResponsability.services.SoporteAvanzado;
-import org.example.patronesComportamiento.chainOfResponsability.services.SoporteBasico;
-import org.example.patronesComportamiento.command.invoker.Invoker;
-import org.example.patronesComportamiento.command.model.Pedidos;
-import org.example.patronesComportamiento.command.model.Productos;
-import org.example.patronesComportamiento.command.services.AgregarProductoImpl;
-import org.example.patronesComportamiento.command.services.CancelarPedidoImpl;
-import org.example.patronesComportamiento.command.services.CompletarPedido;
-import org.example.patronesComportamiento.command.services.PedidoService;
-import org.example.patronesComportamiento.observer.services.AplicacionWeb;
-import org.example.patronesComportamiento.observer.services.AplicacionesMoviles;
-import org.example.patronesComportamiento.observer.services.Publisher;
-import org.example.patronesComportamiento.observer.services.ServidorNotificaciones;
-import org.example.patronesComportamiento.strategy.context.ContextArchivos;
-import org.example.patronesComportamiento.strategy.model.Archivos;
-import org.example.patronesComportamiento.strategy.services.RarImpl;
-import org.example.patronesComportamiento.strategy.services.ZipImpl;
-import java.sql.Date;
-import java.time.LocalDate;
+import org.example.patronesComportamiento.mediator.mediatorFunction.ChatGrupo;
+import org.example.patronesComportamiento.mediator.model.Usuarios;
+import org.example.patronesComportamiento.mediator.services.UsuarioImpl;
 
 
 public class MainComportamiento {
@@ -59,7 +39,7 @@ public class MainComportamiento {
         invoker.recibirInterface(cancelarPedido);
         invoker.realizarAccionInterface();*/
 
-        Tickets tickets= new Tickets("No me funciona el servidor", EnumNivelTicket.ALTO);
+        /*Tickets tickets= new Tickets("No me funciona el servidor", EnumNivelTicket.ALTO);
         SoporteBasico soporteBasico = new SoporteBasico();
         SoporteAvanzado soporteAvanzado = new SoporteAvanzado();
         Administrador administrador= new Administrador();
@@ -67,7 +47,23 @@ public class MainComportamiento {
         soporteBasico.setNext(soporteAvanzado);
         soporteAvanzado.setNext(administrador);
 
-        soporteBasico.procesarTickets(tickets);
+        soporteBasico.procesarTickets(tickets);*/
+
+
+        ChatGrupo chatGrupo = new ChatGrupo();
+        Usuarios usuarios1 = new Usuarios(1,"Angel");
+        Usuarios usuarios2 = new Usuarios(2,"Daniela");
+        Usuarios usuarios3 = new Usuarios(2,"Juliana");
+        UsuarioImpl usuarioImpl = new UsuarioImpl(chatGrupo,usuarios1);
+        UsuarioImpl usuarioImpl2 = new UsuarioImpl(chatGrupo,usuarios2);
+        UsuarioImpl usuarioImpl3 = new UsuarioImpl(chatGrupo,usuarios3);
+
+        usuarioImpl.enviarMensaje("Hola a todos!");
+        usuarioImpl2.enviarMensaje("Hola soy "+usuarios2.getNombre());
+        usuarioImpl3.enviarMensaje("Hola soy "+usuarios3.getNombre());
+        //chatGrupo.send(usuario1);
+
+
 
 
 
